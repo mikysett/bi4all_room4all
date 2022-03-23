@@ -1,10 +1,10 @@
-package com.run4all.demo;
+package com.bi4all.room4all;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class Room4allApplicationTests {
 
 	@Test
 	void contextLoads() {

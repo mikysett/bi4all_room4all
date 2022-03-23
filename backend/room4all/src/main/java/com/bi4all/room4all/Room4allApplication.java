@@ -1,13 +1,13 @@
-package com.run4all.demo;
+package com.bi4all.room4all;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class Room4allApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(Room4allApplication.class, args);
 	}
 
 }
