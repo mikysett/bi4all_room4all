@@ -1,11 +1,11 @@
 const hours_1 = {
-	0: {start: "10:00", end: "16:35"},
-	1: {start: "10:00", end: "16:35"},
-	2: {start: "10:00", end: "16:35"},
-	3: {start: "11:00", end: "16:35"},
-	4: {start: "12:00", end: "16:35"},
-	5: {start: "10:00", end: "16:35"},
-	6: {start: "00:00", end: "00:00"},
+	0: {start: 600, end: 995},
+	1: {start: 600, end: 995},
+	2: {start: 600, end: 995},
+	3: {start: 660, end: 995},
+	4: {start: 720, end: 995},
+	5: {start: 600, end: 995},
+	6: {start: 0, end: 0},
 }
 
 const mock_meetings = {

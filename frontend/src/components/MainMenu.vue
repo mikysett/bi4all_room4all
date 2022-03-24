@@ -29,18 +29,13 @@
 
 <script setup>
 import { ref } from 'vue'
-const search = ref({
-	day: "",
-	start_time: "",
-	end_time: "",
-	nb_people: "",
-})
+// import { useStore } from 'vuex'
+
+const search = ref({})
+
+// const store = useStore()
 
 const checkAvailability = () => {
 	console.log(search.value)
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>
