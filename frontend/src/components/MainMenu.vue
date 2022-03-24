@@ -20,6 +20,7 @@
 			</div>
 			<div class="nb-people">
 				<input type="number"
+					min="1"
 					class="nb-people"
 					name="nb_people"
 					placeholder="Number of participants"
@@ -34,13 +35,20 @@
 
 <script setup>
 import { ref } from 'vue'
-// import { useStore } from 'vuex'
+import { useStore } from 'vuex'
+import { formatDate } from '@/util/helper'
 
-const search = ref({})
+const store = useStore()
 
-// const store = useStore()
+const search = ref({
+	day: formatDate(store.getters.getSearchData.day),
+	start_time: "",
+	end_time: "",
+	nb_people: ""
+})
 
 const checkAvailability = () => {
+	console.log("search value")
 	console.log(search.value)
 }
 </script>

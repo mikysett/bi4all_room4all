@@ -11,12 +11,19 @@ body {
 	--text1: #222;
 	--text2: #fefefe;
 
+	--accent_bg: #ddd;
+
 	color: var(--text1);
 }
 
 p {
 	margin: 0;
 	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: var(--text1);
 }
 
 .home {
@@ -49,7 +56,11 @@ body {
 
 .room {
 	display: grid;
-	grid-template-columns: 1fr 4fr;
+	grid-template-columns: 160px 4fr;
+}
+
+.room:hover {
+	background: var(--accent_bg);
 }
 
 .room_header {
@@ -99,7 +110,7 @@ body {
 .hours {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	column-gap: 40px;
+	column-gap: 10px;
 	margin: 20px 0;
 }
 
@@ -149,6 +160,7 @@ body {
 }
 
 .free-spot {
+	display: block;
 	background: var(--third_color);
 	margin: 10px 0;
 	padding: 12px 4px;

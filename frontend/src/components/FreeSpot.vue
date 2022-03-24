@@ -2,13 +2,14 @@
 	<div class="free-spot-container"
 		:style="{left: startPos + 'px',
 			width: width + 'px'}">
-		<div class="free-spot"
+		<router-link to="/add-meeting"
+			class="free-spot"
 			:style="{background: room.color}">
 			<div class="spot-hours">
 				<p>{{ minFormat(spot.start) }}</p>
 				<p>{{ minFormat(spot.end) }}</p>
 			</div>
-		</div>
+		</router-link>
 	</div>
 </template>
 

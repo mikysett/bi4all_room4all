@@ -24,8 +24,6 @@ const store = createStore({
 			state.searchData = data
 		},
 		saveHoursSpan(state, data) {   
-			console.log("hours_span")
-			console.log(data)
 			state.searchData.hours_span = data
 		}
 	},

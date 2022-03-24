@@ -7,6 +7,20 @@ export const minFormat = (min) => {
 		+ minutes.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
 }
 
+export const formatDate = (date) => {
+	var d = new Date(date),
+		month = '' + (d.getMonth() + 1),
+		day = '' + d.getDate(),
+		year = d.getFullYear();
+
+	if (month.length < 2) 
+		month = '0' + month;
+	if (day.length < 2) 
+		day = '0' + day;
+
+	return [year, month, day].join('-');
+}
+
 const hours_1 = {
 	0: {start: 600, end: 995},
 	1: {start: 600, end: 995},
@@ -107,7 +121,7 @@ export const rooms = {
 	3: {
 		id: 3,
 		name: "forth room",
-		color: "#550000",
+		color: "#00ff00",
 		max_capacity: 40,
 		opening_hours: hours_1,
 		notes: "simple notes",
@@ -116,7 +130,7 @@ export const rooms = {
 	4: {
 		id: 4,
 		name: "forth room",
-		color: "#550000",
+		color: "#0000ff",
 		max_capacity: 40,
 		opening_hours: hours_1,
 		notes: "simple notes",

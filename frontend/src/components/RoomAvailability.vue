@@ -1,5 +1,5 @@
 <template>
-	<div class="room">
+	<div class="room" :style="{width: max_hour_span + 'px'}">
 		<div class="room_header">
 			<p class="room_name">{{ room.name }}</p>
 			<p class="room_capacity">{{ room.max_capacity }} pax</p>
@@ -25,12 +25,18 @@ const store = useStore()
 
 const props = defineProps(['room'])
 
+const max_hour_span = computed(() => {
+	// 2 is the pixel multiplier as in FreeSpot
+	// 160 is the size reserved for the room header as in the .css
+	return ((store.getters.getSearchData.hours_span.end
+		- store.getters.getSearchData.hours_span.start)
+		* 2) + 160
+})
+
 const free_spots = computed(() => {
 	let free_spots = []
 
 	const searchData = store.getters.getSearchData
-
-	console.log(searchData)
 
 	const hours_span = searchData.hours_span
 	let curr_start = props.room.opening_hours[searchData.day_of_week].start
@@ -63,10 +69,6 @@ const free_spots = computed(() => {
 				end: room_end
 			})
 	}
-	console.log(free_spots)
 	return free_spots
 })
-
-console.log(free_spots.value)
-
 </script>
