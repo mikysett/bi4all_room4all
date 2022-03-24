@@ -1,9 +1,12 @@
 <template>
 	<div class="main-menu">
-		<div>Logo</div>
+		<div class="logo">
+			<img src="./../assets/logoBlack.png" alt="Room4All Logo">
+		</div>
 		<form @submit.prevent="checkAvailability">
 			<div>
 				<input type="date"
+					class="date"
 					name="day"
 					v-model="search.day">
 			</div>
@@ -17,10 +20,12 @@
 			</div>
 			<div class="nb-people">
 				<input type="number"
+					class="nb-people"
 					name="nb_people"
+					placeholder="Number of participants"
 					v-model="search.nb_people">
 			</div>
-			<div>
+			<div class="btn-container">
 				<button class="std-btn" type="submit">Search</button>
 			</div>
 		</form>

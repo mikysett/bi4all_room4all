@@ -1,10 +1,9 @@
 <template>
 	<div class="room">
 		<div class="room_header">
-			<span>{{ room.id }}</span>
-			<span>{{ room.name }}</span>
-			<span>max capacity: {{ room.max_capacity }}</span>
-			<span>Notes: {{ room.notes }}</span>
+			<p class="room_name">{{ room.name }}</p>
+			<p class="room_capacity">{{ room.max_capacity }} pax</p>
+			<p class="room_notes">Notes: {{ room.notes }}</p>
 		</div>
 		<div class="room_calendar" style="position: relative">
 			<FreeSpot
