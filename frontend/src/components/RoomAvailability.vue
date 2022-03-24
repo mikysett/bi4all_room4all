@@ -6,20 +6,60 @@
 			<span>max capacity: {{ room.max_capacity }}</span>
 			<span>Notes: {{ room.notes }}</span>
 		</div>
-		<div class="room_calendar">
-			
+		<div class="room_calendar" style="position: relative">
+			<FreeSpot
+				v-for="(spot, objKey) in free_spots"
+				:key="objKey"
+				:spot="spot"
+				:room="room" />
 		</div>
 	</div>
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
+/* eslint-disable */
+import { defineProps, computed } from 'vue'
+import { useStore } from 'vuex'
+import FreeSpot from '@/components/FreeSpot'
+
+const store = useStore()
 
 const props = defineProps(['room'])
 
-console.log(props.room)
-</script>
+const free_spots = computed(() => {
+	let free_spots = []
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>
+	const searchData = store.getters.getSearchData
+
+	console.log(searchData)
+
+	const hours_span = searchData.hours_span
+	let curr_start = hours_span.start
+
+	const day_meetings = props.room.day_meetings
+	const nb_meetings = Object.keys(props.room.day_meetings).length
+
+	for (let i = 0 ; i < nb_meetings ; i++) {
+		const curr_meeting = day_meetings[i]
+		if (curr_start < curr_meeting.hour_start) {
+			free_spots.push({
+				start: curr_start,
+				end: curr_meeting.hour_start
+			})
+			curr_start = curr_meeting.hour_end
+		}
+	}
+	// In case no meetings are booked for this day
+	if (nb_meetings == 0) {
+		free_spots.push({
+			start: curr_start,
+			end: hours_span.end
+		})
+	}
+	console.log(free_spots)
+	return free_spots
+})
+
+console.log(free_spots.value)
+
+</script>

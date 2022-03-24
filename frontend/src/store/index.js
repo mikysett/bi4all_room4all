@@ -5,7 +5,10 @@ const store = createStore({
 		searchData: {
 			day: new Date,
 			day_of_week: ((new Date).getDay() + 6) % 7,
-			hours_span: "",
+			hours_span: {
+				start: 0,
+				end: 0,
+			},
 			nb_people: 0,
 			hour_start: "",
 			hour_end: "",
@@ -20,10 +23,10 @@ const store = createStore({
 		saveSearchData(state, data) {   
 			state.searchData = data
 		},
-		saveHoursSpan(state, hours_span) {   
+		saveHoursSpan(state, data) {   
 			console.log("hours_span")
-			console.log(hours_span)
-			state.searchData.hours_span = hours_span
+			console.log(data)
+			state.searchData.hours_span = data
 		}
 	},
 	actions: {
