@@ -1,10 +1,10 @@
 <template>
-	<div class="free-spot"
-		style="position: absolute; top: 0; overflow: hidden;"
+	<div class="free-spot-container"
 		:style="{left: startPos + 'px', width: width + 'px'}">
-		<span>{{ minFormat(spot.start) }}</span>
-		<span> - </span>
-		<span>{{ minFormat(spot.end) }}</span>
+		<div class="free-spot">
+			<p>{{ minFormat(spot.start) }}</p>
+			<p>{{ minFormat(spot.end) }}</p>
+		</div>
 	</div>
 </template>
 

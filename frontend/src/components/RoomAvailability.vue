@@ -5,7 +5,7 @@
 			<p class="room_capacity">{{ room.max_capacity }} pax</p>
 			<p class="room_notes">Notes: {{ room.notes }}</p>
 		</div>
-		<div class="room_calendar" style="position: relative">
+		<div class="room_calendar">
 			<FreeSpot
 				v-for="(spot, objKey) in free_spots"
 				:key="objKey"
@@ -33,7 +33,8 @@ const free_spots = computed(() => {
 	console.log(searchData)
 
 	const hours_span = searchData.hours_span
-	let curr_start = hours_span.start
+	let curr_start = props.room.opening_hours[searchData.day_of_week].start
+	let room_end = props.room.opening_hours[searchData.day_of_week].end
 
 	const day_meetings = props.room.day_meetings
 	const nb_meetings = Object.keys(props.room.day_meetings).length
@@ -54,6 +55,13 @@ const free_spots = computed(() => {
 			start: curr_start,
 			end: hours_span.end
 		})
+	}
+	// To save the last meeting time
+	else if (curr_start < room_end) {
+		free_spots.push({
+				start: curr_start,
+				end: room_end
+			})
 	}
 	console.log(free_spots)
 	return free_spots

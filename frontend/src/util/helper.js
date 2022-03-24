@@ -115,6 +115,15 @@ export const rooms = {
 	},
 	4: {
 		id: 4,
+		name: "forth room",
+		color: "#550000",
+		max_capacity: 40,
+		opening_hours: hours_1,
+		notes: "simple notes",
+		day_meetings: mock_meetings
+	},
+	5: {
+		id: 5,
 		name: "fifth room",
 		color: "#550000",
 		max_capacity: 40,
@@ -122,4 +131,58 @@ export const rooms = {
 		notes: "simple notes",
 		day_meetings: mock_meetings
 	},
+	6: {
+		id: 6,
+		name: "fifth room",
+		color: "#550000",
+		max_capacity: 40,
+		opening_hours: hours_1,
+		notes: "simple notes",
+		day_meetings: mock_meetings
+	},
+	7: {
+		id: 7,
+		name: "fifth room",
+		color: "#550000",
+		max_capacity: 40,
+		opening_hours: hours_1,
+		notes: "simple notes",
+		day_meetings: mock_meetings
+	},
+	8: {
+		id: 8,
+		name: "fifth room",
+		color: "#550000",
+		max_capacity: 40,
+		opening_hours: hours_1,
+		notes: "simple notes",
+		day_meetings: mock_meetings
+	},
+	9: {
+		id: 9,
+		name: "fifth room",
+		color: "#550000",
+		max_capacity: 40,
+		opening_hours: hours_2,
+		notes: "simple notes",
+		day_meetings: mock_meetings
+	},
+	10: {
+		id: 10,
+		name: "fifth room",
+		color: "#550000",
+		max_capacity: 40,
+		opening_hours: hours_3,
+		notes: "simple notes",
+		day_meetings: mock_meetings
+	},
+	11: {
+		id: 11,
+		name: "fifth room",
+		color: "#550000",
+		max_capacity: 40,
+		opening_hours: hours_3,
+		notes: "simple notes",
+		day_meetings: mock_meetings
+	}
 }
