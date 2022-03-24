@@ -151,5 +151,6 @@ body {
 .free-spot {
 	background: var(--third_color);
 	margin: 10px 0;
-	padding: 15px;
+	padding: 12px 4px;
+	border-radius: 4px;
 }

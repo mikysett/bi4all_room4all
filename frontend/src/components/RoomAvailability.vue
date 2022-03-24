@@ -46,8 +46,8 @@ const free_spots = computed(() => {
 				start: curr_start,
 				end: curr_meeting.hour_start
 			})
-			curr_start = curr_meeting.hour_end
 		}
+		curr_start = curr_meeting.hour_end
 	}
 	// In case no meetings are booked for this day
 	if (nb_meetings == 0) {
@@ -57,7 +57,7 @@ const free_spots = computed(() => {
 		})
 	}
 	// To save the last meeting time
-	else if (curr_start < room_end) {
+	else if (curr_start != curr_start < room_end) {
 		free_spots.push({
 				start: curr_start,
 				end: room_end
