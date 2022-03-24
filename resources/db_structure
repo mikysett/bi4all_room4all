@@ -4,13 +4,10 @@ room: {
 	color:
 	max_capacity:
 	opening_hours: {
-		0: {"10:00", "16:35"},
-		1: {"00:00", "23:59"},
-		2: {10, 16},
-		3: {10, 16},
-		4: {10, 16},
-		5: {10, 16},
-		6: {10, 16}
+		// 600 = 10:00 (example)
+		0: {start: 600, end: 1260},
+		1: {start: 600, end: 1260},
+		...
 	}
 	notes:
 	[day_meetings: meeting]
@@ -24,8 +21,8 @@ meeting: {
 	email:
 	nb_people:
 	day: [date]
-	hour_start: "10:00"
-	hour_end: "10:30"
+	hour_start: 600
+	hour_end: 1200
 	notes:
 }
 

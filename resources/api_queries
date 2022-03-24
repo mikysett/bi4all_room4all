@@ -1,0 +1,3 @@
+POST '/create_room' REQUEST :room
+POST '/create_meeting' REQUEST :meeting
+GET '/daily_list' : REQUEST {day: "dd/MM/yyyy"} RESPONSE :Array(room)
