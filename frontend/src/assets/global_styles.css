@@ -1,0 +1,14 @@
+/* Here goes all the css */
+body {
+	--primary_color: #eee;
+	--secondary_color: #a163ff;
+	--third_color: #2a2aff;
+
+	--primary_bg: #120a1e;
+	--secondary_bg: #c4abe9;
+	--third_bg: #a163ff;
+}
+
+.room_header {
+	background: var(--secondary_bg);
+}
