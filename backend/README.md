@@ -2,17 +2,27 @@
 
 ## Mapping Get
 ### localhost:8080/meeting
-[
+
+```json
+ [
+    
     {
-        "id": 1,
-        "name": "Nicolas",
-        "email": "qualquer@qualquer.com",
-        "nb_phone": "999999999",
-        "date": "29/04/2022",
-        "hours_start": 630,
-        "hours_end": 750,
-        "notes": "qualquer coisa"
+    
+    "id": 1,
+    "name": "Nicolas",    
+    "email": "qualquer@qualquer.com",
+    "nb_phone": "999999999",
+    "date": "29/04/2022",
+    "hours_start": 630, 
+    "hours_end": 750,
+    "notes": "qualquer coisa"
+    
     },
+]
+ ```
+
+```json
+[
     {
         "id": 2,
         "name": "Daniel",
@@ -23,6 +33,7 @@
         "hours_end": 870,
         "notes": "qualquer coisa"
     },
+
     {
         "id": 3,
         "name": "Ricardo",
@@ -34,9 +45,13 @@
         "notes": "qualquer coisa"
     }
 ]
+ ```
 
 ### localhost:8080/meeting/{id}
- {
+
+```json
+
+{
     "id": 3,
     "name": "Ricardo",
     "email": "qualquer@qualquer.com",
@@ -46,8 +61,12 @@
     "hours_end": 870,
     "notes": "qualquer coisa"
 }
+    
+```
+    
 ### localhost:8080/room
 
+```json
 [
     {
         "id": 1,
@@ -92,8 +111,11 @@
         ]
     }
 ]
-
+```
 ### localhost:8080/room/1
+
+
+```json
 {
     "id": 1,
     "name": "10",
@@ -136,7 +158,8 @@
         }
     ]
 }	
+```
 
-## Mapping post
+# Mapping post
 ### localhost:8080/meeting
 ### localhost:8080/room
