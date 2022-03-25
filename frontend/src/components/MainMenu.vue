@@ -3,7 +3,7 @@
 		<div class="logo">
 			<img src="./../assets/logoBlack.png" alt="Room4All Logo">
 		</div>
-		<form @submit.prevent="checkAvailability">
+		<form class="std-form" @submit.prevent="checkAvailability">
 			<div>
 				<input type="date"
 					class="date"

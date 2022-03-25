@@ -1,9 +1,11 @@
 <template>
 	<div class="room" :style="{width: max_hour_span + 'px'}">
-		<div class="room_header">
-			<p class="room_name">{{ room.name }}</p>
-			<p class="room_capacity">{{ room.max_capacity }} pax</p>
-			<p class="room_notes">Notes: {{ room.notes }}</p>
+		<div class="room_header_wrapper">
+			<div class="room_header">
+				<p class="room_name">{{ room.name }}</p>
+				<p class="room_capacity">{{ room.max_capacity }} people</p>
+				<!-- <p class="room_notes">Notes: {{ room.notes }}</p> -->
+			</div>
 		</div>
 		<div class="room_calendar">
 			<FreeSpot
@@ -28,9 +30,10 @@ const props = defineProps(['room'])
 const max_hour_span = computed(() => {
 	// 2 is the pixel multiplier as in FreeSpot
 	// 160 is the size reserved for the room header as in the .css
+	// 10 is a bit of padding corresponding to the padding of the header
 	return ((store.getters.getSearchData.hours_span.end
 		- store.getters.getSearchData.hours_span.start)
-		* 2) + 160
+		* 2) + 160 + 10
 })
 
 const free_spots = computed(() => {

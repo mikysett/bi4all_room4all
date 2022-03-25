@@ -1,4 +1,4 @@
-export const minFormat = (min) => {
+export const formatMin = (min) => {
 	const hour = Math.floor(min / 60)
 	const minutes = min % 60
 
@@ -7,7 +7,18 @@ export const minFormat = (min) => {
 		+ minutes.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
 }
 
+export const formatHour = (hourString) => {
+	if (hourString === "")
+		return 0;
+	const subHour = hourString.split(':')
+
+	return (parseInt(subHour[0]) * 60 + parseInt(subHour[1]))
+}
+
 export const formatDate = (date) => {
+	if (date === "")
+		return "";
+
 	var d = new Date(date),
 		month = '' + (d.getMonth() + 1),
 		day = '' + d.getDate(),
@@ -26,7 +37,7 @@ const hours_1 = {
 	1: {start: 600, end: 995},
 	2: {start: 600, end: 995},
 	3: {start: 600, end: 995},
-	4: {start: 720, end: 995},
+	4: {start: 600, end: 995},
 	5: {start: 600, end: 995},
 	6: {start: 0, end: 0},
 }
@@ -36,7 +47,7 @@ const hours_2 = {
 	1: {start: 600, end: 995},
 	2: {start: 600, end: 995},
 	3: {start: 660, end: 1200},
-	4: {start: 720, end: 995},
+	4: {start: 660, end: 1200},
 	5: {start: 600, end: 995},
 	6: {start: 0, end: 0},
 }
@@ -46,7 +57,7 @@ const hours_3 = {
 	1: {start: 600, end: 995},
 	2: {start: 600, end: 995},
 	3: {start: 260, end: 995},
-	4: {start: 720, end: 995},
+	4: {start: 260, end: 995},
 	5: {start: 600, end: 995},
 	6: {start: 0, end: 0},
 }
