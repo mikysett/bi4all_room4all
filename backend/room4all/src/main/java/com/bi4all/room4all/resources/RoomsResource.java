@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
-@RequestMapping(value = "/room")
+@RequestMapping(value = "/rooms")
 public class RoomsResource {
 
 	@Autowired

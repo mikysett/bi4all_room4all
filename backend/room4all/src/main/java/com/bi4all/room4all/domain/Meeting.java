@@ -24,7 +24,7 @@ public class Meeting implements Serializable{
 	private String email;
 	private Integer nb_people;
 	
-	@JsonFormat(pattern = "dd/MM/yyyy")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date date;
 	private Integer hours_start;
 	private Integer hours_end;

@@ -32,18 +32,18 @@ public class Room4allApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception 
 	{
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 		Rooms room1 = new Rooms(null, "10", 5, "Qualuer coisa");
 		Rooms room2 = new Rooms(null, "11", 5, "Qualuer coisa");
 
-		OpenHours oHours1 = new OpenHours(null, sdf.parse("30/04/2022"), 200, 400, room1);
-		OpenHours oHours2 = new OpenHours(null, sdf.parse("01/05/2022"), 200, 400, room1);
-		OpenHours oHours3 = new OpenHours(null, sdf.parse("30/04/2022"), 200, 400, room2);
-		OpenHours oHours4 = new OpenHours(null, sdf.parse("01/05/2022"), 200, 400, room2);
+		OpenHours oHours1 = new OpenHours(null, sdf.parse("2022-04-30"), 200, 400, room1);
+		OpenHours oHours2 = new OpenHours(null, sdf.parse("2022-05-01"), 200, 400, room1);
+		OpenHours oHours3 = new OpenHours(null, sdf.parse("2022-04-30"), 200, 400, room2);
+		OpenHours oHours4 = new OpenHours(null, sdf.parse("2022-05-01"), 200, 400, room2);
 
-		Meeting meet1 = new Meeting(null, "Nicolas", "qualquer@qualquer.com", 2, sdf.parse("30/04/2022"), 630, 750, "qualquer coisa", room1);
-		Meeting meet2 = new Meeting(null, "Daniel", "qualquer@qualquer.com", 2, sdf.parse("30/04/2022"), 750, 870, "qualquer coisa", room2);
+		Meeting meet1 = new Meeting(null, "Nicolas", "qualquer@qualquer.com", 2, sdf.parse("2022-04-30"), 630, 750, "qualquer coisa", room1);
+		Meeting meet2 = new Meeting(null, "Daniel", "qualquer@qualquer.com", 2, sdf.parse("2022-04-30"), 750, 870, "qualquer coisa", room2);
 
 		room1.setMeeting(Arrays.asList(meet1));
 		room2.setMeeting(Arrays.asList(meet2));

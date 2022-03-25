@@ -9,9 +9,11 @@ import com.bi4all.room4all.domain.Meeting;
 import com.bi4all.room4all.domain.Rooms;
 import com.bi4all.room4all.dto.MeetingDTO;
 import com.bi4all.room4all.repositories.MeetingRepository;
+import com.bi4all.room4all.services.exceptions.DataExceptionIntegrity;
 import com.bi4all.room4all.services.exceptions.ObjectNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -41,9 +43,18 @@ public class MeetingService {
 		return meeting_repository.save(obj);
 	}
 
+	public void delete(Integer id)
+	{
+		try {
+			meeting_repository.deleteById(id);
+		} catch(DataIntegrityViolationException e) {
+			throw new DataExceptionIntegrity("Connot delete");
+		}
+	}
+
 	public Meeting fromDTO(MeetingDTO objDTO) throws ParseException
 	{
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Rooms roomsNew = roomService.find_by_id(objDTO.getRoom_id());
 		Meeting newObj = new Meeting(null, objDTO.getName(), objDTO.getEmail(), objDTO.getNb_people(), sdf.parse(objDTO.getDate()), objDTO.getHours_start(), objDTO.getHours_end(), objDTO.getNotes(), roomsNew);
 		roomService.updateMeeting(roomsNew, newObj);
