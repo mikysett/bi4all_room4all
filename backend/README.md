@@ -3,8 +3,7 @@
 ## Mapping Get
 ### localhost:8080/meeting
 
-<p>
- 
+```json
  [
     
     {
@@ -20,11 +19,10 @@
     
     },
 ]
+ ```
 
-</p>
-
-<p>
-
+```json
+[
     {
         "id": 2,
         "name": "Daniel",
@@ -35,7 +33,6 @@
         "hours_end": 870,
         "notes": "qualquer coisa"
     },
-</p>
 
     {
         "id": 3,
@@ -48,10 +45,11 @@
         "notes": "qualquer coisa"
     }
 ]
+ ```
 
 ### localhost:8080/meeting/{id}
 
-<p>
+```json
 
 {
     "id": 3,
@@ -64,12 +62,11 @@
     "notes": "qualquer coisa"
 }
     
-</p>
+```
     
 ### localhost:8080/room
 
 ```json
-
 [
     {
         "id": 1,
@@ -114,13 +111,11 @@
         ]
     }
 ]
- 
 ```
 ### localhost:8080/room/1
 
 
 ```json
-
 {
     "id": 1,
     "name": "10",
