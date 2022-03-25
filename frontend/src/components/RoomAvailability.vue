@@ -8,11 +8,20 @@
 			</div>
 		</div>
 		<div class="room_calendar">
-			<FreeSpot
-				v-for="(spot, objKey) in free_spots"
-				:key="objKey"
-				:spot="spot"
-				:room="room" />
+			<template v-if="store.getters.getIsEditorMode === false">
+				<FreeSpot
+					v-for="(spot, objKey) in free_spots"
+					:key="objKey"
+					:spot="spot"
+					:room="room" />
+			</template>
+			<template v-else>
+				<OccupiedSpot
+					v-for="meeting in room.day_meetings"
+					:key="meeting.id"
+					:meeting="meeting"
+					:room="room" />
+			</template>
 		</div>
 	</div>
 </template>
@@ -22,6 +31,7 @@
 import { defineProps, computed } from 'vue'
 import { useStore } from 'vuex'
 import FreeSpot from '@/components/FreeSpot'
+import OccupiedSpot from '@/components/OccupiedSpot'
 
 const store = useStore()
 

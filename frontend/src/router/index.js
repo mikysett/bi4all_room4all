@@ -15,6 +15,10 @@ const routes = [
   {
     path: '/add-room', name: 'add-room',
     component: () => import(/* webpackChunkName: "AddRoom" */ '../components/AddRoom')
+  },
+  {
+    path: '/edit-meeting', name: 'edit-meeting',
+    component: () => import(/* webpackChunkName: "EditMeeting" */ '../components/EditMeeting')
   }
 ]
 

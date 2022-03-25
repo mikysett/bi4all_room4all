@@ -13,11 +13,13 @@ const store = createStore({
 			hour_start: "",
 			hour_end: "",
 		},
+		isEditorMode: false,
 		roomSel: "",
 		hoursSel: {
 			start: "",
 			end: ""
-		}
+		},
+		meetingSel: ""
 	},
 	getters: {
 		getSearchData(state) {
@@ -28,6 +30,12 @@ const store = createStore({
 		},
 		getHoursSel(state) {
 			return state.hoursSel
+		},
+		getIsEditorMode(state) {
+			return state.isEditorMode
+		},
+		getMeetingSel(state) {
+			return state.meetingSel
 		}
 	},
 	mutations: {
@@ -42,6 +50,19 @@ const store = createStore({
 		},
 		saveHoursSel(state, data) {
 			state.hoursSel = data
+		},
+		saveNbPeople(state, data) {
+			state.searchData.nb_people = data
+		},
+		saveHours(state, data) {
+			state.searchData.hour_start = data.start
+			state.searchData.hour_end = data.end
+		},
+		saveIsEditorMode(state, data) {
+			state.isEditorMode = data
+		},
+		saveMeetingSel(state, data) {
+			state.meetingSel = data
 		}
 	},
 	actions: {

@@ -1,6 +1,8 @@
 <template>
 	<div class="main-content">
-		<RoomAvailability v-for="room in rooms" :room="room" :key="room.id" />
+		<template v-for="room in rooms" :key="room.id">
+			<RoomAvailability v-if="isRoomEligible(room)" :room="room" />
+		</template>
 	</div>
 </template>
 
@@ -34,5 +36,39 @@ const calculateHoursSpan = (rooms) => {
 
 store.commit('saveHoursSpan', calculateHoursSpan(rooms))
 // console.log(store.getters.getSearchData)
+
+const isRoomEligible = (room) => {
+	const searchData = store.getters.getSearchData
+
+	console.log(room)
+
+	if (searchData.nb_people !== ""
+		&& searchData.nb_people > room.max_capacity)
+		return false;
+	if (searchData.hour_start !== "" && searchData.hour_end !== "")
+	{
+		if (room.opening_hours[searchData.day_of_week].start > searchData.hour_start
+			|| room.opening_hours[searchData.day_of_week].end < searchData.hour_end)
+			return false;
+		console.log(searchData.hour_start)
+		console.log(searchData.hour_end)
+		for (let i = 0 ; i < Object.keys(room.day_meetings).length ; i++) {
+			const curr_meeting = room.day_meetings[i]
+			console.log("checking meeting:")
+			console.log(curr_meeting)
+			const meeting_start = curr_meeting.hour_start
+			const meeting_end = curr_meeting.hour_end
+			if ((meeting_start <= searchData.hour_start
+						&& meeting_end >= searchData.hour_end)
+					|| (meeting_start >= searchData.hour_start
+						&& meeting_start < searchData.hour_end)
+					|| (meeting_end > searchData.hour_start
+						&& meeting_end < searchData.hour_end))
+				return false;
+		}
+	}
+	
+	return true;
+}
 
 </script>

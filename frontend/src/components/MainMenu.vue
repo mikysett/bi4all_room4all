@@ -27,6 +27,9 @@
 					v-model="search.nb_people">
 
 			</div>
+			<div v-if="formError !== ''" class="form-error">
+				{{ formError }}
+			</div>
 			<div class="btn-container">
 				<button class="std-btn" type="submit">Search</button>
 			</div>
@@ -34,6 +37,15 @@
 		<div class="menu-separator"></div>
 		<div class="admin-menu">
 			<p class="admin-title">Administrator</p>
+			<div class="editor-mode">
+				<label class="switch">
+					<input :checked="isEditorMode" type="checkbox" @click="toggleEditorMode()">
+					<span class="slider round"></span>
+				</label>
+				<p class="editor-mode-title">
+					Editor Mode
+				</p>
+			</div>
 			<router-link class="inline-btn" to="/add-room">Create a new room</router-link>
 		</div>
 	</div>
@@ -42,10 +54,12 @@
 <script setup>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
-import { formatDate } from '@/util/helper'
+import { formatDate, formatHour } from '@/util/helper'
 
 const store = useStore()
 
+const isEditorMode = ref(store.getters.getIsEditorMode)
+const formError = ref("")
 const search = ref({
 	day: formatDate(store.getters.getSearchData.day),
 	start_time: "",
@@ -53,7 +67,39 @@ const search = ref({
 	nb_people: ""
 })
 
+const toggleEditorMode = () => {
+	if (isEditorMode.value == false)
+		isEditorMode.value = true
+	else
+		isEditorMode.value = false
+	store.commit('saveIsEditorMode', isEditorMode.value)
+}
+
 const checkAvailability = () => {
+	formError.value = ""
+
+	if (search.value.nb_people !== "")
+		store.commit('saveNbPeople', search.value.nb_people)
+
+	if (search.value.day === "") {
+		formError.value = "A date is necessary"
+		return;
+	}
+	
+	let newStart = formatHour(search.value.start_time)
+	let newEnd = formatHour(search.value.end_time)
+	if (search.value.start_time !== "" && search.value.end_time !== "") {
+		if (newStart >= newEnd)
+		{
+			formError.value = "Hours are incoherent"
+			newStart = ""
+			newEnd = ""
+		}
+	}
+	else if (search.value.start_time !== "" || search.value.end_time !== "")
+		formError.value = "Insert both start and end hours or none of them"
+	store.commit('saveHours', { start: newStart, end: newEnd })
+
 	console.log("search value")
 	console.log(search.value)
 }

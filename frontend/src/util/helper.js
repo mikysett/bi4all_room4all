@@ -9,7 +9,7 @@ export const formatMin = (min) => {
 
 export const formatHour = (hourString) => {
 	if (hourString === "")
-		return 0;
+		return "";
 	const subHour = hourString.split(':')
 
 	return (parseInt(subHour[0]) * 60 + parseInt(subHour[1]))
@@ -70,7 +70,7 @@ const mock_meetings = {
 		user: "Michele",
 		email: "test@example.com",
 		nb_people: 10,
-		day: "__date__",
+		day: "2022-03-24",
 		hour_start: 600,
 		hour_end: 660,
 		notes: "can't change the hour"
@@ -82,7 +82,7 @@ const mock_meetings = {
 		user: "Michele",
 		email: "test@example.com",
 		nb_people: 10,
-		day: "__date__",
+		day: "2022-03-24",
 		hour_start: 680,
 		hour_end: 710,
 		notes: "can't change the hour"
@@ -94,7 +94,7 @@ const mock_meetings = {
 		user: "Michele",
 		email: "test@example.com",
 		nb_people: 10,
-		day: "__date__",
+		day: "2022-03-24",
 		hour_start: 740,
 		hour_end: 790,
 		notes: "can't change the hour"
@@ -104,27 +104,27 @@ const mock_meetings = {
 export const rooms = {
 	0: {
 		id: 0,
-		name: "first room bug",
+		name: "Small",
 		color: "#ff4444",
-		max_capacity: 40,
+		max_capacity: 10,
 		opening_hours: hours_1,
 		notes: "simple notes",
 		day_meetings: mock_meetings
 	},
 	1: {
 		id: 1,
-		name: "beauty room",
+		name: "Medium",
 		color: "#550000",
-		max_capacity: 40,
+		max_capacity: 20,
 		opening_hours: hours_2,
 		notes: "simple notes",
 		day_meetings: mock_meetings
 	},
 	2: {
 		id: 2,
-		name: "third room",
+		name: "Medium large",
 		color: "#00ffff",
-		max_capacity: 40,
+		max_capacity: 30,
 		opening_hours: hours_3,
 		notes: "simple notes",
 		day_meetings: mock_meetings
@@ -203,9 +203,9 @@ export const rooms = {
 	},
 	11: {
 		id: 11,
-		name: "fifth room",
+		name: "Auditorium",
 		color: "#550000",
-		max_capacity: 40,
+		max_capacity: 100,
 		opening_hours: hours_3,
 		notes: "simple notes",
 		day_meetings: mock_meetings
