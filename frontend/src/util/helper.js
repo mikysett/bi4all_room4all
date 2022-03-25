@@ -182,7 +182,7 @@ const mock_meetings_3 = {
 	}
 }
 
-export const rooms = {
+export const mock_rooms = {
 	0: {
 		id: 0,
 		name: "Matrix",

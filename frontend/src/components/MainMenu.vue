@@ -82,8 +82,7 @@ const toggleEditorMode = () => {
 const checkAvailability = () => {
 	formError.value = ""
 
-	if (search.value.nb_people !== "")
-		store.commit('saveNbPeople', search.value.nb_people)
+	store.commit('saveNbPeople', search.value.nb_people)
 
 	if (search.value.day === "") {
 		formError.value = "A date is necessary"

@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { server, formatDate } from '@/util/helper'
+import { mock_rooms, server, formatDate } from '@/util/helper'
 import axios from 'axios'
 import RoomAvailability from '@/components/RoomAvailability'
 import { useStore } from 'vuex'
@@ -44,6 +44,11 @@ const fetchRooms = () => {
 		.then(data => {
 			rooms.value = data.data
 			store.commit('saveHoursSpan', calculateHoursSpan(rooms))
+		})
+		.catch(() => {
+			// Only for testing purpose
+			rooms.value = mock_rooms
+			store.commit('saveHoursSpan', calculateHoursSpan(mock_rooms))
 		})
 }
 
