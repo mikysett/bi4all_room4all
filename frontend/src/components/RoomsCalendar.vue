@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { server } from '@/util/helper'
+import { server, formatDate } from '@/util/helper'
 import axios from 'axios'
 import RoomAvailability from '@/components/RoomAvailability'
 import { useStore } from 'vuex'
@@ -38,8 +38,9 @@ const calculateHoursSpan = (rooms) => {
 }
 
 const fetchRooms = () => {
+	const day = store.getters.getSearchData.day
 	axios
-		.get(`${server.baseURL}/`)
+		.get(`${server.baseURL}/rooms/${formatDate(day)}`)
 		.then(data => {
 			rooms.value = data.data
 			store.commit('saveHoursSpan', calculateHoursSpan(rooms))

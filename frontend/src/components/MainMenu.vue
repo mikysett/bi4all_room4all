@@ -60,6 +60,8 @@ const store = useStore()
 
 const searchData = store.getters.getSearchData
 
+// console.log(searchData.day)
+
 const isEditorMode = ref(store.getters.getIsEditorMode)
 const formError = ref("")
 const search = ref({
