@@ -70,8 +70,9 @@
 <script setup>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
+import axios from 'axios'
 import router from '@/router/index'
-import { formatDate, formatMin } from '@/util/helper'
+import { formatDate, formatMin, formatHour, server } from '@/util/helper'
 
 const store = useStore()
 
@@ -79,8 +80,6 @@ const searchData = store.getters.getSearchData
 const hoursSel = store.getters.getHoursSel
 
 const room = store.getters.getRoomSel;
-
-// console.log(hoursSel)
 
 const meeting = ref({
 	room_id: room.id,
@@ -107,7 +106,16 @@ const addMeeting = () => {
 		formError.value = "All fields except the notes and email are mandatory"
 		return;
 	}
-	// query to backend here
+	meeting.value.hour_start = formatHour(meeting.value.hour_start)
+	meeting.value.hour_end = formatHour(meeting.value.hour_end)
+	axios
+		.post(`${server.baseURL}/`, meeting.value)
+		.then(() => {
+			router.go(-1);
+		})
+		.catch(() => {
+			formError.value = "Error server, try again"
+		});
 }
 
 const navigate = () => {

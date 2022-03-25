@@ -7,11 +7,14 @@
 </template>
 
 <script setup>
-import { rooms } from '@/util/helper'
+import { ref } from 'vue'
+import { server } from '@/util/helper'
+import axios from 'axios'
 import RoomAvailability from '@/components/RoomAvailability'
 import { useStore } from 'vuex'
 
 const store = useStore()
+const rooms = ref("")
 
 const calculateHoursSpan = (rooms) => {
 	let day_of_week = store.getters.getSearchData.day_of_week
@@ -34,9 +37,14 @@ const calculateHoursSpan = (rooms) => {
 	}
 }
 
-console.log(calculateHoursSpan(rooms))
-store.commit('saveHoursSpan', calculateHoursSpan(rooms))
-// console.log(store.getters.getSearchData)
+const fetchRooms = () => {
+	axios
+		.get(`${server.baseURL}/`)
+		.then(data => {
+			rooms.value = data.data
+			store.commit('saveHoursSpan', calculateHoursSpan(rooms))
+		})
+}
 
 const isRoomEligible = (room) => {
 	const searchData = store.getters.getSearchData
@@ -68,8 +76,9 @@ const isRoomEligible = (room) => {
 				return false;
 		}
 	}
-	
 	return true;
 }
+
+fetchRooms()
 
 </script>

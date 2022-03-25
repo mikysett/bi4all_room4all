@@ -1,3 +1,7 @@
+export const server = {
+	baseURL: 'http://localhost:3000'
+}
+
 export const formatMin = (min) => {
 	const hour = Math.floor(min / 60)
 	const minutes = min % 60

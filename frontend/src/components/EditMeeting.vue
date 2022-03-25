@@ -70,8 +70,9 @@
 <script setup>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
+import axios from 'axios'
 import router from '@/router/index'
-import { formatDate, formatMin, formatHour } from '@/util/helper'
+import { formatDate, formatMin, formatHour, server } from '@/util/helper'
 
 
 const store = useStore()
@@ -99,7 +100,17 @@ const addMeeting = () => {
 		formError.value = "All fields except the notes and email are mandatory"
 		return;
 	}
-	// query to backend here
+	meeting.value.hour_start = formatHour(meeting.value.hour_start)
+	meeting.value.hour_end = formatHour(meeting.value.hour_end)
+	axios
+		.put(`${server.baseURL}/meeting/edit?meetingID=${meeting.value.id}`,
+			meeting.value)
+		.then(() => {
+			router.go(-1);
+		})
+		.catch(() => {
+			formError.value = "Error updating the meeting"
+		})
 }
 
 const navigate = () => {
@@ -109,7 +120,13 @@ const navigate = () => {
 }
 
 const deleteMeeting = () => {
-	// Implement delete request
-	router.go(-1);
+	axios.delete(`${server.baseURL}/meeting/delete?meetingID=${meeting.value.id}`,
+		store.getters.getAxiosToken)
+		.then(() => {
+			router.go(-1);
+		})
+		.catch(() => {
+			formError.value = "Error deleting the meeting"
+		})
 }
 </script>
