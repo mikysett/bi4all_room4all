@@ -31,5 +31,4 @@ public class RoomService {
 		obj.setId(null);
 		return roomRepository.save(obj);
 	}
-
 }

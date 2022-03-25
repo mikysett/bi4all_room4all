@@ -2,12 +2,15 @@ package com.bi4all.room4all.services;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import com.bi4all.room4all.domain.Meeting;
+import com.bi4all.room4all.domain.Rooms;
 import com.bi4all.room4all.dto.MeetingDTO;
 import com.bi4all.room4all.repositories.MeetingRepository;
+import com.bi4all.room4all.repositories.RoomRepository;
 import com.bi4all.room4all.services.exceptions.ObjectNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +18,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MeetingService {
+
+	@Autowired
+	private RoomRepository roomRepository;
 
 	@Autowired
 	private MeetingRepository meeting_repository;
@@ -44,6 +50,10 @@ public class MeetingService {
 	public Meeting fromDTO(MeetingDTO objDTO) throws ParseException
 	{
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		return new Meeting(null, objDTO.getName(), objDTO.getEmail(), objDTO.getNb_phone(), sdf.parse(objDTO.getDate()), objDTO.getHours_start(), objDTO.getHours_end(), objDTO.getNotes(), roomService.find_by_id(objDTO.getId()));
+		Rooms roomsNew = roomService.find_by_id(objDTO.getRoom_id());
+		Meeting newObj = new Meeting(null, objDTO.getName(), objDTO.getEmail(), objDTO.getNb_phone(), sdf.parse(objDTO.getDate()), objDTO.getHours_start(), objDTO.getHours_end(), objDTO.getNotes(), roomsNew);
+		//roomsNew.setMeeting(Arrays.asList(newObj));
+		//roomRepository.save(roomsNew);
+		return  newObj;
 	}
 }
