@@ -26,7 +26,8 @@
 					v-model="meeting.hour_end">
 			</div>
 			<div>
-				<input type="text"
+				<input autofocus
+					type="text"
 					placeholder="Meeting name"
 					name="name"
 					v-model="meeting.name">

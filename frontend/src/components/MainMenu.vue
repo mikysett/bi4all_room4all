@@ -25,11 +25,17 @@
 					name="nb_people"
 					placeholder="Number of participants"
 					v-model="search.nb_people">
+
 			</div>
 			<div class="btn-container">
 				<button class="std-btn" type="submit">Search</button>
 			</div>
 		</form>
+		<div class="menu-separator"></div>
+		<div class="admin-menu">
+			<p class="admin-title">Administrator</p>
+			<router-link class="inline-btn" to="/add-room">Create a new room</router-link>
+		</div>
 	</div>
 </template>
 

@@ -100,6 +100,33 @@ body {
 	margin: 40px 20px
 }
 
+.menu-separator {
+	background: #aaa;
+	width: 100%;
+	height: 1px;
+	margin-bottom: 20px
+}
+
+.admin-title {
+	font-size: 24px;
+	color: var(--secondary_color);
+}
+
+.inline-btn {
+	display: block;
+	border-left: 4px solid var(--secondary_color);
+	padding: 10px 12px
+}
+
+.inline-btn:hover {
+	color: var(--primary_bg);
+	background: var(--secondary_color);
+}
+
+.std-form {
+	position: relative;
+}
+
 .std-form input {
 	padding: 12px 8px;
 	border: 2px solid var(--secondary_color);
@@ -109,6 +136,18 @@ body {
 	box-sizing: border-box;
 	margin-bottom: 20px;
 	display: block;
+}
+
+input.color-picker {
+	position: absolute;
+	top: -60px;
+	right: 10px;
+	padding: 0;
+	width: 60px;
+	height: 40px;
+	cursor: pointer;
+	border: 0;
+	border-radius: 0;
 }
 
 .hours {
@@ -205,4 +244,20 @@ body {
 	border: 2px solid var(--error);
 	padding: 12px 8px;
 	border-radius: 8px;
+}
+
+.daily-opening-hours {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	column-gap: 10px;
+	align-items: center;
+}
+
+.daily-opening-hours input {
+	margin-bottom: 10px;
+}
+
+.day-name {
+	text-align: right;
+	margin-bottom: 10px
 }
