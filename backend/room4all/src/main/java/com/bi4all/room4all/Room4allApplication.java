@@ -42,8 +42,8 @@ public class Room4allApplication implements CommandLineRunner{
 		OpenHours oHours3 = new OpenHours(null, sdf.parse("30/04/2022"), 200, 400, room2);
 		OpenHours oHours4 = new OpenHours(null, sdf.parse("01/05/2022"), 200, 400, room2);
 
-		Meeting meet1 = new Meeting(null, "Nicolas", "qualquer@qualquer.com", "999999999", sdf.parse("30/04/2022"), 630, 750, "qualquer coisa", room1);
-		Meeting meet2 = new Meeting(null, "Daniel", "qualquer@qualquer.com", "888888888", sdf.parse("30/04/2022"), 750, 870, "qualquer coisa", room2);
+		Meeting meet1 = new Meeting(null, "Nicolas", "qualquer@qualquer.com", 2, sdf.parse("30/04/2022"), 630, 750, "qualquer coisa", room1);
+		Meeting meet2 = new Meeting(null, "Daniel", "qualquer@qualquer.com", 2, sdf.parse("30/04/2022"), 750, 870, "qualquer coisa", room2);
 
 		room1.setMeeting(Arrays.asList(meet1));
 		room2.setMeeting(Arrays.asList(meet2));

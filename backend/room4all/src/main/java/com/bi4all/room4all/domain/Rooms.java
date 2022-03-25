@@ -90,6 +90,11 @@ public class Rooms implements Serializable{
 	public void setMeeting(List<Meeting> meeting) {
 		this.meeting = meeting;
 	}
+
+	public void addMeeting(Meeting newMeeting) {
+		meeting.add(newMeeting);
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

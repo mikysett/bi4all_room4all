@@ -3,6 +3,7 @@ package com.bi4all.room4all.services;
 import java.util.List;
 import java.util.Optional;
 
+import com.bi4all.room4all.domain.Meeting;
 import com.bi4all.room4all.domain.Rooms;
 import com.bi4all.room4all.repositories.RoomRepository;
 
@@ -29,6 +30,12 @@ public class RoomService {
 	public Rooms insert(Rooms obj)
 	{
 		obj.setId(null);
+		return roomRepository.save(obj);
+	}
+
+	public Rooms updateMeeting(Rooms obj, Meeting newMeeting)
+	{
+		obj.addMeeting(newMeeting);
 		return roomRepository.save(obj);
 	}
 }

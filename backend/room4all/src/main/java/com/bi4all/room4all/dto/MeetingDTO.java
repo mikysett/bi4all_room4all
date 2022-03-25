@@ -8,7 +8,7 @@ public class MeetingDTO implements Serializable{
 	private Integer id;
 	private String name;
 	private String email;
-	private String nb_phone;
+	private Integer nb_people;
 	private String date;
 	private Integer hours_start;
 	private Integer hours_end;
@@ -18,12 +18,12 @@ public class MeetingDTO implements Serializable{
 	public MeetingDTO() {
 	}
 	
-	public MeetingDTO(Integer id, String name, String email, String nb_phone, String date, Integer hours_start,
+	public MeetingDTO(Integer id, String name, String email, Integer nb_people, String date, Integer hours_start,
 			Integer hours_end, String notes, Integer room_id) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
-		this.nb_phone = nb_phone;
+		this.nb_people = nb_people;
 		this.date = date;
 		this.hours_start = hours_start;
 		this.hours_end = hours_end;
@@ -55,12 +55,12 @@ public class MeetingDTO implements Serializable{
 		this.email = email;
 	}
 
-	public String getNb_phone() {
-		return nb_phone;
+	public Integer getNb_people() {
+		return nb_people;
 	}
 
-	public void setNb_phone(String nb_phone) {
-		this.nb_phone = nb_phone;
+	public void setNb_people(Integer nb_people) {
+		this.nb_people = nb_people;
 	}
 
 	public String getDate() {

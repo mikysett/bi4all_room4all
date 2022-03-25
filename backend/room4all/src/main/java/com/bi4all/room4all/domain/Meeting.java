@@ -22,7 +22,7 @@ public class Meeting implements Serializable{
 	private Integer id;
 	private String name;
 	private String email;
-	private String nb_phone;
+	private Integer nb_people;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date date;
@@ -38,12 +38,12 @@ public class Meeting implements Serializable{
 	public Meeting() {
 	}
 
-	public Meeting(Integer id, String name, String email, String nb_phone, Date date, Integer hours_start, Integer hours_end, String notes,
+	public Meeting(Integer id, String name, String email, Integer nb_people, Date date, Integer hours_start, Integer hours_end, String notes,
 			Rooms room) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
-		this.nb_phone = nb_phone;
+		this.nb_people = nb_people;
 		this.date = date;
 		this.hours_start = hours_start;
 		this.hours_end = hours_end;
@@ -75,12 +75,12 @@ public class Meeting implements Serializable{
 		this.email = email;
 	}
 
-	public String getNb_phone() {
-		return nb_phone;
+	public Integer getNb_people() {
+		return nb_people;
 	}
 
-	public void setNb_phone(String nb_phone) {
-		this.nb_phone = nb_phone;
+	public void setNb_people(Integer nb_people) {
+		this.nb_people = nb_people;
 	}
 
 	public Date getDate() {
