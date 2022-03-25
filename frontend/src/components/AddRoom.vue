@@ -135,7 +135,7 @@ const addRoom = () => {
 		return;
 	}
 	// query to backend here
-	console.log(room.value)
+	// console.log(room.value)
 }
 
 const navigate = () => {

@@ -58,13 +58,15 @@ import { formatDate, formatHour } from '@/util/helper'
 
 const store = useStore()
 
+const searchData = store.getters.getSearchData
+
 const isEditorMode = ref(store.getters.getIsEditorMode)
 const formError = ref("")
 const search = ref({
 	day: formatDate(store.getters.getSearchData.day),
-	start_time: "",
-	end_time: "",
-	nb_people: ""
+	start_time: searchData.hour_start,
+	end_time: searchData.hour_end,
+	nb_people: searchData.nb_people
 })
 
 const toggleEditorMode = () => {
@@ -100,7 +102,7 @@ const checkAvailability = () => {
 		formError.value = "Insert both start and end hours or none of them"
 	store.commit('saveHours', { start: newStart, end: newEnd })
 
-	console.log("search value")
-	console.log(search.value)
+	// console.log("search value")
+	// console.log(search.value)
 }
 </script>

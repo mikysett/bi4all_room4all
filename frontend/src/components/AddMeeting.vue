@@ -80,7 +80,7 @@ const hoursSel = store.getters.getHoursSel
 
 const room = store.getters.getRoomSel;
 
-console.log(hoursSel)
+// console.log(hoursSel)
 
 const meeting = ref({
 	room_id: room.id,

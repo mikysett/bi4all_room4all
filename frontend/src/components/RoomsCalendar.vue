@@ -34,13 +34,14 @@ const calculateHoursSpan = (rooms) => {
 	}
 }
 
+console.log(calculateHoursSpan(rooms))
 store.commit('saveHoursSpan', calculateHoursSpan(rooms))
 // console.log(store.getters.getSearchData)
 
 const isRoomEligible = (room) => {
 	const searchData = store.getters.getSearchData
 
-	console.log(room)
+	// console.log(room)
 
 	if (searchData.nb_people !== ""
 		&& searchData.nb_people > room.max_capacity)
@@ -50,12 +51,12 @@ const isRoomEligible = (room) => {
 		if (room.opening_hours[searchData.day_of_week].start > searchData.hour_start
 			|| room.opening_hours[searchData.day_of_week].end < searchData.hour_end)
 			return false;
-		console.log(searchData.hour_start)
-		console.log(searchData.hour_end)
+		// console.log(searchData.hour_start)
+		// console.log(searchData.hour_end)
 		for (let i = 0 ; i < Object.keys(room.day_meetings).length ; i++) {
 			const curr_meeting = room.day_meetings[i]
-			console.log("checking meeting:")
-			console.log(curr_meeting)
+			// console.log("checking meeting:")
+			// console.log(curr_meeting)
 			const meeting_start = curr_meeting.hour_start
 			const meeting_end = curr_meeting.hour_end
 			if ((meeting_start <= searchData.hour_start

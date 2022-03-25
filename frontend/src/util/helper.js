@@ -78,7 +78,7 @@ const mock_meetings = {
 	1: {
 		id: 1,
 		room_id: 0,
-		name: "first meeting",
+		name: "second meeting",
 		user: "Michele",
 		email: "test@example.com",
 		nb_people: 10,
@@ -90,7 +90,7 @@ const mock_meetings = {
 	2: {
 		id: 0,
 		room_id: 0,
-		name: "first meeting",
+		name: "third meeting",
 		user: "Michele",
 		email: "test@example.com",
 		nb_people: 10,

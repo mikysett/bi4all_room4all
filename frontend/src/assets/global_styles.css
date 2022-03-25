@@ -13,7 +13,7 @@ body {
 
 	--accent_bg: #ddd;
 
-	--error: #2b0808;
+	--error: #943636;
 	--error_accent: #faa8a8;
 
 	color: var(--text1);
@@ -169,7 +169,7 @@ input.color-picker {
 	text-align: right;
 }
 
-.std-btn {
+.std-btn, .alert-btn {
 	background-color: var(--secondary_color);
 	padding: 12px 30px;
 	color: var(--text2);
@@ -177,10 +177,23 @@ input.color-picker {
 	cursor: pointer;
 }
 
-.std-btn:hover {
+.std-btn:hover, .alert-btn:hover {
 	background-color: var(--third_color);
 	border: 2px solid var(--secondary_color);
 	color: var(--text1);
+}
+
+.alert-btn {
+	background: var(--error_accent);
+	border: 2px solid var(--error);
+	color: var(--text1);
+	margin-right: 20px;
+}
+
+.alert-btn:hover {
+	background: var(--error);
+	border: 2px solid var(--error);
+	color: var(--text2);
 }
 
 .room_calendar {

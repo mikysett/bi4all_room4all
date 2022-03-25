@@ -60,6 +60,7 @@
 				{{ formError }}
 			</div>
 			<div class="btn-container">
+				<button class="alert-btn" @click="deleteMeeting()" type="button">DELETE meeting</button>
 				<button class="std-btn" type="submit">Edit meeting</button>
 			</div>
 		</form>
@@ -70,7 +71,7 @@
 import { ref } from 'vue'
 import { useStore } from 'vuex'
 import router from '@/router/index'
-import { formatDate, formatMin } from '@/util/helper'
+import { formatDate, formatMin, formatHour } from '@/util/helper'
 
 
 const store = useStore()
@@ -80,9 +81,9 @@ const room = store.getters.getRoomSel;
 const meeting = ref(store.getters.getMeetingSel)
 const formError = ref("")
 
-console.log(meeting.value.day)
+// console.log(meeting.value.day)
 meeting.value.day = formatDate(meeting.value.day)
-console.log(meeting.value.day)
+// console.log(meeting.value.day)
 meeting.value.hour_start = formatMin(meeting.value.hour_start)
 meeting.value.hour_end = formatMin(meeting.value.hour_end)
 
@@ -102,6 +103,13 @@ const addMeeting = () => {
 }
 
 const navigate = () => {
+	meeting.value.hour_start = formatHour(meeting.value.hour_start)
+	meeting.value.hour_end = formatHour(meeting.value.hour_end)
+	router.go(-1);
+}
+
+const deleteMeeting = () => {
+	// Implement delete request
 	router.go(-1);
 }
 </script>

@@ -6,10 +6,10 @@ const store = createStore({
 			day: new Date('2022-03-24'),
 			day_of_week: ((new Date).getDay() + 6) % 7,
 			hours_span: {
-				start: 0,
-				end: 0,
+				start: "",
+				end: "",
 			},
-			nb_people: 0,
+			nb_people: "",
 			hour_start: "",
 			hour_end: "",
 		},

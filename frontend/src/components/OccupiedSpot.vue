@@ -27,6 +27,8 @@ import router from '@/router/index'
 const store = useStore()
 const props = defineProps(['room', 'meeting'])
 
+console.log(props.meeting)
+
 const startPos = computed(() => {
 	return (props.meeting.hour_start
 		- store.getters.getSearchData.hours_span.start) * 2
