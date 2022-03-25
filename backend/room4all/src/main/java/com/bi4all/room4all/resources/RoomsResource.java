@@ -39,7 +39,7 @@ public class RoomsResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
-	@PostMapping
+	@PostMapping(value = "/add")
 	public ResponseEntity<Void> insert(@Valid @RequestBody Rooms obj)
 	{
 		obj = service.insert(obj);

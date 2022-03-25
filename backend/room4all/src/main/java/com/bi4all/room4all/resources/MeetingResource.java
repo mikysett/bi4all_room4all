@@ -42,7 +42,7 @@ public class MeetingResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	@PostMapping
+	@PostMapping(value = "/add")
 	public ResponseEntity<Void> insert(@Valid @RequestBody MeetingDTO objDTO) throws ParseException
 	{
 		Meeting obj = service.fromDTO(objDTO);

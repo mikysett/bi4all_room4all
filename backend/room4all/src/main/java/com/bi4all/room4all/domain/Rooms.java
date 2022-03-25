@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,7 +26,7 @@ public class Rooms implements Serializable{
 	private List<OpenHours> open_hours = new ArrayList<>();
 	private String notes;
 	
-	@OneToMany(mappedBy = "room")
+	@OneToMany(mappedBy = "room", cascade = CascadeType.REMOVE, orphanRemoval = true)
 	private List<Meeting> meeting = new ArrayList<>();
 	
 	
